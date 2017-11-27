@@ -1,15 +1,17 @@
-import gw2api from 'gw2api-client';
+import Gw2ApiClient from 'gw2api-client';
 import keyBy from 'lodash/keyBy';
 
 const CACHE_ITEMS = 'gw2-itemstats/items';
 const CACHE_ITEMSTATS = 'gw2-itemstats/itemstats';
 
+const api = new Gw2ApiClient();
+
 export const defaultOptions = {
     cache: new Map(),
     filter: (item) => true,
     api: {
-        items: (lang) => gw2api.language(lang).items().all(),
-        stats: (lang) => gw2api.language(lang).itemstats().all()
+        items: (lang) => api.language(lang).items().all(),
+        stats: (lang) => api.language(lang).itemstats().all()
     },
     useCache: true
 };
@@ -67,7 +69,7 @@ function loadItems(language, {useCache, cache, api}) {
     }
     
     // Load items
-    return api.items().then(
+    return api.items(language).then(
         (items) => {
             // Add items to cache
             cache.set(CACHE_ITEMS, items);
@@ -96,7 +98,7 @@ async function loadItemstats(language, {useCache, cache, api}) {
     }
     
     // Load itemstats
-    return api.itemstats().then(
+    return api.itemstats(language).then(
         (itemstats) => {
             // Add itemstats to cache
             cache.set(cacheKey, itemstats);
