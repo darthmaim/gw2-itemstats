@@ -111,7 +111,8 @@ async function loadItemstats(language, {useCache, cache, api}) {
 
 function filterItems(item) {
     const canHaveItemstats = ['Weapon', 'Armor', 'Back', 'Trinket'].indexOf(item.type) !== -1;
-    const hasItemStats = item.details.infix_upgrade && item.details.infix_upgrade.id && item.details.infix_upgrade.attributes.length > 0;
+    const hasItemStats = item.details && item.details.infix_upgrade
+        && item.details.infix_upgrade.id && item.details.infix_upgrade.attributes.length > 0;
 
     return canHaveItemstats && hasItemStats;
 }
