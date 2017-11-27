@@ -1,6 +1,6 @@
 {
   "name": "gw2-itemstats",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Get itemstats with real attribute values from the API",
   "main": "lib/index.js",
   "module": "es/index.js",

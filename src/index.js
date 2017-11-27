@@ -89,7 +89,7 @@ function loadItems(language, {useCache, cache, api}) {
  * @param {Map}    options.cache
  * @param {Object} options.api
  */
-async function loadItemstats(language, {useCache, cache, api}) {
+function loadItemstats(language, {useCache, cache, api}) {
     const cacheKey = `${CACHE_ITEMSTATS}:${language}`
 
     // Check the cache for all itemstats
