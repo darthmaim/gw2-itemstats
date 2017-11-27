@@ -11,7 +11,7 @@ export const defaultOptions = {
     filter: (item) => true,
     api: {
         items: (lang) => api.language(lang).items().all(),
-        stats: (lang) => api.language(lang).itemstats().all()
+        itemstats: (lang) => api.language(lang).itemstats().all()
     },
     useCache: true
 };
